@@ -52,7 +52,7 @@ public class FakeTeam {
      * @param input the sort priority
      * @return the team name
      */
-    private String getNameFromInput(int input) {
+    public String getNameFromInput(int input) {
         if (input < 0) return "Z";
         char letter = (char) ((input / 5) + 65);
         int repeat = input % 5 + 1;
