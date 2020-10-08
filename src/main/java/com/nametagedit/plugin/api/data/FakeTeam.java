@@ -28,6 +28,8 @@ public class FakeTeam {
     public int sortPriority;
 
     public FakeTeam(String prefix, String suffix, int sortPriority, boolean playerTag) {
+        this.name = UNIQUE_ID + "_" + getNameFromInput(sortPriority) + ++ID + (playerTag ? "+P" : "");
+
  		// Adding a VersionChecker for proper limits to ensure they're no crashes.
 		if(VersionChecker.getBukkitVersion() == BukkitVersion.v1_13_R1) {
         	this.name = this.name.length() > 128 ? this.name.substring(0, 128) : this.name;
