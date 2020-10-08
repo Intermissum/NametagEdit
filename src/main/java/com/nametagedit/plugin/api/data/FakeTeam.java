@@ -23,9 +23,11 @@ public class FakeTeam {
     private String name;
     private String prefix = "";
     private String suffix = "";
+    public int sortPriority;
 
     public FakeTeam(String prefix, String suffix, int sortPriority, boolean playerTag) {
         this.name = UNIQUE_ID + "_" + getNameFromInput(sortPriority) + ++ID + (playerTag ? "+P" : "");
+        this.sortPriority = sortPriority;
         // It is possible the names of the Team exceeded the length of 16 in the past,
         // and caused crashes as a result. This is a layer of protection against that.
         this.name = this.name.length() > 16 ? this.name.substring(0, 16) : this.name;
