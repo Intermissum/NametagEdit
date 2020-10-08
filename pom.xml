@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.nametagedit</groupId>
     <artifactId>nametagedit</artifactId>
-    <version>4.1.0</version>
+    <version>4.4.12</version>
     <packaging>jar</packaging>
     <name>NametagEdit</name>
     <url>http://maven.apache.org</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spigot.version>1.12.2-R0.1-SNAPSHOT</spigot.version>
     </properties>
     <dependencies>
-        <!--Spigot API-->
+        <!--Spigot API -->
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.12.2-R0.1-SNAPSHOT</version>
+            <version>${spigot.version}</version>
             <scope>provided</scope>
         </dependency>
         <!--Bukkit API -->
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.12.2-R0.1-SNAPSHOT</version>
+            <version>${spigot.version}</version>
             <scope>provided</scope>
         </dependency>
-        <!-- PermissionsEx-->
+        <!-- PermissionsEx -->
         <dependency>
             <groupId>ninja.leaping.permissionsex</groupId>
             <artifactId>permissionsex-parent</artifactId>
@@ -42,7 +44,7 @@
             <scope>system</scope>
             <systemPath>${basedir}/lib/zPermissions.jar</systemPath>
         </dependency>
-        <!-- EssentialsGroupManager-->
+        <!-- EssentialsGroupManager -->
         <dependency>
             <groupId>org.anjocaido.groupmanager</groupId>
             <artifactId>EssentialsGroupManager</artifactId>
@@ -50,11 +52,19 @@
             <scope>system</scope>
             <systemPath>${basedir}/lib/EssentialsGroupManager.jar</systemPath>
         </dependency>
+        <!-- Guilds -->
+        <dependency>
+            <groupId>me.glaremasters</groupId>
+            <artifactId>guilds</artifactId>
+            <version>3.5.3.8-RELEASE</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/Guilds-3.5.3.8-RELEASE.jar</systemPath>
+        </dependency>
         <!-- LuckPerms -->
         <dependency>
-            <groupId>me.lucko.luckperms</groupId>
-            <artifactId>luckperms-api</artifactId>
-            <version>4.0</version>
+            <groupId>net.luckperms</groupId>
+            <artifactId>api</artifactId>
+            <version>5.0</version>
             <scope>provided</scope>
         </dependency>
         <!-- Clip Placeholder API -->
@@ -92,6 +102,19 @@
             <version>1.14.8</version>
             <scope>provided</scope>
         </dependency>
+        <!-- Google Guava API -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>r05</version>
+        </dependency>
+        <!-- bStats -->
+        <dependency>
+        	<groupId>org.bstats.bStats-Metrics</groupId>
+        	<artifactId>bstats-bukkit</artifactId>
+        	<version>1.3</version>
+        	<scope>compile</scope>
+        </dependency>
     </dependencies>
     <repositories>
         <!-- Spigot -->
@@ -104,6 +127,11 @@
             <id>placeholderapi</id>
             <url>http://repo.extendedclip.com/content/repositories/placeholderapi/</url>
         </repository>
+        <!-- bStats -->
+        <repository>
+        	<id>jitpack.io</id>
+        	<url>https://jitpack.io</url>
+		</repository>
     </repositories>
     <!-- Builds NametagEdit -->
     <build>
@@ -139,6 +167,7 @@
                                 <includes>
                                     <include>org.slf4j:*</include>
                                     <include>com.zaxxer:*</include>
+                                    <include>org.bstats.bStats-Metrics:*</include>
                                 </includes>
                             </artifactSet>
                         </configuration>
